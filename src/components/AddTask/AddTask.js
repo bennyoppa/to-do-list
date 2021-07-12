@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import "./AddTask.css";
 
 const AddTask = (props) => {
-  const { addTaskHandler } = props;
+  const { onAddTask } = props;
   const [name, setName] = useState("");
 
   const changeNameHandler = (e) => {
@@ -14,15 +14,22 @@ const AddTask = (props) => {
     setName(newTaskName);
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    onAddTask(name);
+    setName("");
+  };
+
   return (
     <div className="add-task">
-      <form className="inner-wrapper" onSubmit={(e) => addTaskHandler(e, name)}>
+      <form className="inner-wrapper" onSubmit={submitHandler}>
         <TextField
           className="input-field"
           onChange={changeNameHandler}
           id="outlined-basic"
           label="To-Do"
           variant="outlined"
+          value={name}
         />
         <Button variant="contained" color="primary" type="submit">
           ADD
