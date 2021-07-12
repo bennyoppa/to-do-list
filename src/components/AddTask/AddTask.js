@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 
 import "./AddTask.css";
 
-function AddTask(props) {
+const AddTask = (props) => {
   const { handleAddTask } = props;
   const [name, setName] = useState("");
 
@@ -36,6 +36,6 @@ function AddTask(props) {
       </form>
     </div>
   );
-}
+};
 
 export default AddTask;

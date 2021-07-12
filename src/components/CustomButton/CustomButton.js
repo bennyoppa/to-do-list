@@ -1,6 +1,6 @@
 import Button from "@material-ui/core/Button";
 
-function CustomButton(props) {
+const CustomButton = (props) => {
   const { button } = props;
 
   const buttonStyle =
@@ -23,6 +23,6 @@ function CustomButton(props) {
       {button.name}
     </Button>
   );
-}
+};
 
 export default CustomButton;

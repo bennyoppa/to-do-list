@@ -2,7 +2,7 @@ import CustomButton from "../CustomButton/CustomButton";
 
 import "./Task.css";
 
-function Task(props) {
+const Task = (props) => {
   const { name, done } = props.task;
   const { handleCheck, handleDelete, cardColor } = props;
 
@@ -35,6 +35,6 @@ function Task(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Task;

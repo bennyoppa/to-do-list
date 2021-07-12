@@ -1,6 +1,6 @@
 import Task from "../Task/Task";
 
-function Tasks(props) {
+const Tasks = (props) => {
   const { tasks, handleCheck, handleDelete } = props;
   const colors = ["#E9C7C2", "#89CFF0", "#dfdedf", "#c0ced7"];
 
@@ -17,6 +17,6 @@ function Tasks(props) {
       ))}
     </div>
   );
-}
+};
 
 export default Tasks;
