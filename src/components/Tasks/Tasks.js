@@ -1,8 +1,7 @@
 import Task from "../Task/Task";
 
 const Tasks = (props) => {
-  const { tasks, handleCheck, handleDelete } = props;
-  const colors = ["#E9C7C2", "#89CFF0", "#dfdedf", "#c0ced7"];
+  const { tasks, checkHandler, deleteHandler } = props;
 
   return (
     <div>
@@ -10,9 +9,8 @@ const Tasks = (props) => {
         <Task
           key={i}
           task={task}
-          handleCheck={() => handleCheck(i)}
-          handleDelete={() => handleDelete(i)}
-          cardColor={colors[i % colors.length]}
+          checkHandler={() => checkHandler(i)}
+          deleteHandler={() => deleteHandler(i)}
         />
       ))}
     </div>

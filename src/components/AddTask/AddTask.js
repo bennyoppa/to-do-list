@@ -6,26 +6,20 @@ import TextField from "@material-ui/core/TextField";
 import "./AddTask.css";
 
 const AddTask = (props) => {
-  const { handleAddTask } = props;
+  const { addTaskHandler } = props;
   const [name, setName] = useState("");
 
-  const handleChangeName = (e) => {
+  const changeNameHandler = (e) => {
     const newTaskName = e.target.value;
     setName(newTaskName);
   };
 
   return (
     <div className="add-task">
-      <form
-        className="inner-wrapper"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleAddTask(name);
-        }}
-      >
+      <form className="inner-wrapper" onSubmit={(e) => addTaskHandler(e, name)}>
         <TextField
           className="input-field"
-          onChange={handleChangeName}
+          onChange={changeNameHandler}
           id="outlined-basic"
           label="To-Do"
           variant="outlined"
