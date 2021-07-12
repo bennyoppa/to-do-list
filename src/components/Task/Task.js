@@ -4,19 +4,19 @@ import "./Task.css";
 
 const Task = (props) => {
   const { name, done, color } = props.task;
-  const { checkHandler, deleteHandler } = props;
+  const { onCheck, onDelete } = props;
 
   const buttons = [
     {
       name: "CHECK",
-      func: checkHandler,
+      func: onCheck,
       uncheckedColor: "grey",
       checkedColor: "green",
       done: done,
     },
     {
       name: "DELETE",
-      func: deleteHandler,
+      func: onDelete,
       color: "#c41834",
     },
   ];

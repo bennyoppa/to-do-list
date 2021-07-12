@@ -23,9 +23,7 @@ const App = (props) => {
     setTasks(tempTasks);
   };
 
-  const addTaskHandler = (e, name) => {
-    e.preventDefault();
-
+  const addTaskHandler = (name) => {
     if (name === "") {
       alert("Task name cannot be empty!");
     } else {
@@ -40,12 +38,8 @@ const App = (props) => {
 
   return (
     <div className="to-do-list">
-      <AddTask addTaskHandler={addTaskHandler} />
-      <Tasks
-        tasks={tasks}
-        checkHandler={checkHandler}
-        deleteHandler={deleteHandler}
-      />
+      <AddTask onAddTask={addTaskHandler} />
+      <Tasks tasks={tasks} onCheck={checkHandler} onDelete={deleteHandler} />
     </div>
   );
 };

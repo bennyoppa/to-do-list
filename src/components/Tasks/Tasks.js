@@ -1,7 +1,7 @@
 import Task from "../Task/Task";
 
 const Tasks = (props) => {
-  const { tasks, checkHandler, deleteHandler } = props;
+  const { tasks, onCheck, onDelete } = props;
 
   return (
     <div>
@@ -9,8 +9,8 @@ const Tasks = (props) => {
         <Task
           key={i}
           task={task}
-          checkHandler={() => checkHandler(i)}
-          deleteHandler={() => deleteHandler(i)}
+          onCheck={() => onCheck(i)}
+          onDelete={() => onDelete(i)}
         />
       ))}
     </div>
