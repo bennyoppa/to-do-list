@@ -36,8 +36,8 @@ const toDoListSlice = createSlice({
     },
 
     changeNameHandler: (state, action) => {
-      const a = action.payload;
-      state.enteredName = a;
+      const name = action.payload;
+      state.enteredName = name;
     },
   },
 });
