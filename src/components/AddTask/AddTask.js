@@ -1,35 +1,34 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import {
+  addTaskHandler,
+  changeNameHandler,
+} from "../../store/slice/toDoListSlice";
 
 import "./AddTask.css";
 
 const AddTask = (props) => {
-  const { onAddTask } = props;
-  const [name, setName] = useState("");
-
-  const changeNameHandler = (e) => {
-    const newTaskName = e.target.value;
-    setName(newTaskName);
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    onAddTask(name);
-    setName("");
-  };
+  const { enteredName } = useSelector((state) => state.toDoList);
+  const dispatch = useDispatch();
 
   return (
     <div className="add-task">
-      <form className="inner-wrapper" onSubmit={submitHandler}>
+      <form
+        className="inner-wrapper"
+        onSubmit={(e) => {
+          e.preventDefault();
+          dispatch(addTaskHandler());
+        }}
+      >
         <TextField
           className="input-field"
-          onChange={changeNameHandler}
+          onChange={(e) => dispatch(changeNameHandler(e.target.value))}
           id="outlined-basic"
           label="To-Do"
           variant="outlined"
-          value={name}
+          value={enteredName}
         />
         <Button variant="contained" color="primary" type="submit">
           ADD

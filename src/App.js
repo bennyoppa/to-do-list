@@ -1,45 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import AddTask from "./components/AddTask/AddTask";
-import Tasks from "./components/Tasks/Tasks";
+import Task from "./components/Task/Task";
 
 import "./App.css";
 
-const initalTasks = [];
-const colors = ["#E9C7C2", "#89CFF0", "#dfdedf", "#c0ced7"];
-
 const App = (props) => {
-  const [tasks, setTasks] = useState(initalTasks);
-
-  const checkHandler = (i) => {
-    const tempTasks = [...tasks];
-    tempTasks[i].done = !tempTasks[i].done;
-    setTasks(tempTasks);
-  };
-
-  const deleteHandler = (i) => {
-    const tempTasks = [...tasks];
-    tempTasks.splice(i, 1);
-    setTasks(tempTasks);
-  };
-
-  const addTaskHandler = (name) => {
-    if (name === "") {
-      alert("Task name cannot be empty!");
-    } else {
-      const i = tasks.length;
-      const tempTasks = [
-        ...tasks,
-        { name: name, done: false, color: colors[i % colors.length] },
-      ];
-      setTasks(tempTasks);
-    }
-  };
+  const { tasks } = useSelector((state) => state.toDoList);
 
   return (
     <div className="to-do-list">
-      <AddTask onAddTask={addTaskHandler} />
-      <Tasks tasks={tasks} onCheck={checkHandler} onDelete={deleteHandler} />
+      <AddTask />
+      {tasks.map((task, i) => (
+        <Task key={i} task={task} i={i} />
+      ))}
     </div>
   );
 };

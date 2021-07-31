@@ -1,22 +1,29 @@
+import { useDispatch } from "react-redux";
+
 import CustomButton from "../CustomButton/CustomButton";
+import {
+  deleteTaskHandler,
+  checkHandler,
+} from "../../store/slice/toDoListSlice";
 
 import "./Task.css";
 
 const Task = (props) => {
-  const { name, done, color } = props.task;
-  const { onCheck, onDelete } = props;
+  const { i, task } = props;
+  const { name, done, color } = task;
+  const dispatch = useDispatch();
 
   const buttons = [
     {
       name: "CHECK",
-      func: onCheck,
+      func: () => dispatch(checkHandler(i)),
       uncheckedColor: "grey",
       checkedColor: "green",
       done: done,
     },
     {
       name: "DELETE",
-      func: onDelete,
+      func: () => dispatch(deleteTaskHandler(i)),
       color: "#c41834",
     },
   ];
