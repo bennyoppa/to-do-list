@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const colors = ["#E9C7C2", "#89CFF0", "#dfdedf", "#c0ced7"];
 
-export const toDoListSlice = createSlice({
+const toDoListSlice = createSlice({
   name: "toDoList",
   initialState: {
     tasks: [],

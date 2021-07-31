@@ -4,7 +4,7 @@ import CustomButton from "../CustomButton/CustomButton";
 import {
   deleteTaskHandler,
   checkHandler,
-} from "../../store/slice/toDoListSlice";
+} from "../../store/slices/toDoListSlice";
 
 import "./Task.css";
 

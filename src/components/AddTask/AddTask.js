@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import {
   addTaskHandler,
   changeNameHandler,
-} from "../../store/slice/toDoListSlice";
+} from "../../store/slices/toDoListSlice";
 
 import "./AddTask.css";
 

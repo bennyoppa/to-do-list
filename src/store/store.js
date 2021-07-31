@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import toDoListReducer from "./slice/toDoListSlice";
+import { toDoListReducer } from "./slices/index";
 
 export default configureStore({
   reducer: {
